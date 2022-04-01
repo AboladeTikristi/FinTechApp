@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Bag</title>
+    
+    <script src="import.js"></script>
+    
+    <link rel="stylesheet" href="FIN TECH.css">
+</head>
+<body style="background-color:aliceblue;">
+         <br>
+         
+        <img src="money bag3.png" alt=""id="mbag"class="loadimg">
+         <div id="set" style="display:none;" class="loginp"><br>
+          <img src="money bag3.png" alt="" style="width:50px;height:50px;margin-left:auto;margin-right:auto;display:block;margin-top:20px;">
+          <div class="logt">LOG IN </div><br>
+          <div style="width:400px;height:500px;margin-left:40px;margin-right:auto;display:block;margin-top:20px;color:white;">
+          <span>Email</span><br>
+          <form method="get"name="form1"action="Dashboard.html">
+          <input type="email"placeholder="Type your Email" class="inputs" id="input1"></form>
+          <br><br>
+          <span>Password</span><br>
+          <input type="password"placeholder="****" class="inputs" id="input2">
+          <br><br>
+          <a href="#"style="color:white;text-decoration:none;margin-top:10px;margin-left:200px;text-align:right;">forgot password?</a><br>
+          
+          <button type="button" class="buttonl" onclick="myLogin()">LOG IN </button>
+          <br><br><br>
+          <span style="color:grey;;">Don't have an account? <a href="sign up.html"style="color:white;text-decoration:none;margin-top:10px;margin-left:0px;text-align:right;">create an account</a></span>
+        </div><br>
+          
+         </div>
+  <script>
+    var info=JSON.parse(localStorage.getItem("Database"));
+    // var i=0;
+    // i++;
+   timeOut();
+   var see=document.getElementById("set");
+
+  //   function myLogin(){
+  //     if(input1.value==""||input2.value==""){
+  //       alert("incomplete details")
+  //   }
+  //   for(i=0;i<=info.length;i++){
+  //   if (input1.value==info[i].email && input2.value==info[i].password){
+  //     alert("member");
+  //     break;
+  //   }
+  //   else if(input1.value==info[i].email && input2.value!=info[i].password){
+  //     alert("incorrect password");
+  //     break;
+  //   }
+  //   else if(input1.value!=info[i].email && input2.value!=info[i].password){
+  //     alert("invalid login");
+  //     break;
+  //   }
+  // }
+  // window.location="Dashboard.html"
+  // }
+      function timeOut() {
+          var img=document.getElementById("mbag");
+         
+          if (img.style.display="block") {
+            
+             
+            var get= setInterval(function(){img.style.display=img.style.display.replace("block","none");set.style.display=set.style.display.replace("none","block");}, 1000)
+            
+          
+          
+        }
+    
+      } 
+      // function listen({){
+        
+      // }
+      
+       
+  </script>  
+</body>
+
+</html>

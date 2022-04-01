@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Bag signup</title>
+    <link rel="stylesheet" href="FIN TECH.css">
+</head>
+<body style="background-color:aliceblue;">
+    <div id="set" style="display:block;" class="signinp"><br>
+        <img src="money bag3.png" alt="" style="width:50px;height:50px;margin-left:auto;margin-right:auto;display:block;margin-top:20px;">
+        <div class="logt">SIGN UP </div><br>
+        <div style="width:400px;height:500px;margin-left:40px;margin-right:auto;display:block;margin-top:20px;color:white;">
+            <span>User Name</span><br>
+        <input type="text"placeholder="Type your name" class="inputs" id="inputs1">
+        <br><br>
+        <span>Email</span><br>
+        <input type="frame"placeholder="Type your Email" class="inputs" id="inputs2">
+        <br><br>
+        <span>Password</span><br>
+        <input type="password"placeholder="****" class="inputs" id="inputs3">
+        <br><br>
+        <span> Confirm Password</span><br>
+        <input type="password"placeholder="****" class="inputs" id="inputs4">
+        <br><br>
+      
+        <input type="radio" id="agree"placeholder="i agree" > <span style="color:grey;"> I agree all the</span>  <a style="color:white;text-decoration:none;" onclick="myTerms()" href="">terms and conditions</a> .
+        <br>
+        <button class="buttonl" onclick="mySignup()">SIGN UP </button>
+        <br><br>
+        <span style="color:grey;;">Already have an account? <a href="FIN TECH.html"style="color:white;text-decoration:none;margin-top:10px;margin-left:0px;text-align:right;">login here</a></span>
+      </div><br>
+        
+       </div>
+       <script>
+        //    var acc=[]
+        var acc=JSON.parse(localStorage.getItem("Database"));
+           var det;
+           var i =0;
+          
+       
+           function mySignup(){
+               for(i=0; i<=acc.length;i++)
+               {
+                
+                
+                    if(inputs2.value==acc[i].email){
+                        response="This email already exist";
+                        alert(acc[i].email);
+                        break;
+                    }
+                   if(inputs3.value!=inputs4.value){
+                        response="Invalid password confirmation";
+                        
+                     }
+                    else
+                    {
+                        let det={};
+                        det.username=inputs1.value;
+                        det.email=inputs2.value;
+                        det.password=inputs3.value;
+                        var ran=Math.random();
+                        det.accountNo=Math.floor(ran*100000000); 
+                        console.log(det);
+                        acc.push(det);
+                        localStorage.setItem("Database",JSON.stringify(acc));
+                        det=JSON.parse(localStorage.getItem("Database"));
+                        
+                        
+                        response ="Registration succesfulliiii";
+                        
+                        window.location="FIN TECH.html";
+                        break;
+                        
+                    }
+               }
+               alert(response);
+           }
+           function myTerms(){
+               alert("Money Bag will have access to bank account and email and also charges apply to every message sent monthly.")
+           }
+
+
+       </script>
+</body>
+</html>

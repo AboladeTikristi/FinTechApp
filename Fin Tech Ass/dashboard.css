@@ -1,0 +1,27 @@
+.links{
+    margin-left:20px;
+    margin-top:20px;
+    
+    
+}
+.flexs{
+    
+    color:white;
+    background-color:slateblue;
+    width:200px;
+    height:630px;
+    
+}
+.flex{
+    display: flex;
+}
+.search{
+    width:400px;
+    height:50px;
+    margin-left:20px;
+    border-top:none;
+    border-right:none;
+    border-left:none;
+    border-color: blue;
+    background-color:none;
+}
