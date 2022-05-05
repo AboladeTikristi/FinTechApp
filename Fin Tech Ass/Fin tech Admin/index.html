@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Bag signup</title>
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.css">
+    
+    <link rel="stylesheet" href="C:\Users\HP\vs code\Fin Tech ASS\Fin Tech Ass\FIN TECH.css">
+</head>
+<body style="background-color:aliceblue;">
+  <br>
+  <!-- <div class="ml-5 " id="fade"style="width:100px;height:100px;display:none; margin-left:300px;animation:opac 30s; color:blue;text-justify: auto;border-radius:100%; text-align:center; padding-top:20px;font-size:30px; background-color:red; @keyframes opac{from{opacity:1}to{opacity:0}} ;" align="center" ></div> -->
+  <img src="C:\Users\HP\vs code\Fin Tech ASS\Fin Tech Ass\money bag3.png" alt=""id="mbag"class="loadimg">
+  <div id="set" style="display:none;"class="loginp"><br>
+   <div class="ml-5 " id="fade"style="position:absolute;width:100px;height:100px;display:none; margin-left:auto;animation:opac 30s; color:red;text-justify: auto;border-radius:100%; text-align:center; padding-top:20px;font-size:30px; @keyframes opac{from{opacity:1}to{opacity:0}} ;" align="center" ></div>
+   <img src="C:\Users\HP\vs code\Fin Tech ASS\Fin Tech Ass\money bag3.png" alt="" style="width:50px;height:50px;margin-left:auto;margin-right:auto;display:block;margin-top:20px;">
+   <div class="logt"> ADMIN LOG IN </div><br>
+   
+   <div style="width:400px;height:500px;margin-left:40px;margin-right:auto;display:block;margin-top:20px;color:white;">
+   <span>Email</span><br>
+   <form method="get"name="form1"action="Dashboard.html">
+   <input type="email"placeholder="Type your Email" class="inputs" id="input1"></form>
+   <br><br>
+   <span>Password</span><br>
+   <input type="password"placeholder="****" class="inputs" id="input2">
+   <br><br>
+   <a href="#"style="color:white;text-decoration:none;margin-top:10px;margin-left:200px;text-align:right;">forgot password?</a><br>
+   
+   <button type="button" class="buttonl" id="but" onclick="myLogin()">LOG IN </button>
+   <br><br><br>
+        <span style="color:grey;;">Don't have an account? <a href="Admin.html"style="color:white;text-decoration:none;margin-top:10px;margin-left:0px;text-align:right;">sign up here</a></span>
+      </div><br>
+        
+       </div>
+      
+</body>
+<script>
+   timeOut();
+   var see=document.getElementById("set");
+   var info=JSON.parse(localStorage.getItem("DatabaseAdmin"));
+  
+  var a=3;
+  var i;
+  var second=[];
+  // var third=[];
+   //var third=JSON.parse(localStorage.getItem("Database3"));
+    function myLogin(){
+     
+    
+       if(input1.value==""||input2.value==""){
+          alert("incomplete details");
+          return;
+      }
+      if (!info) {
+        alert("This email is not valid")
+      }
+      else{
+     for(i=0; i<=info.length; i++){ 
+       
+      if(input1.value==info[i].email && input2.value!=info[i].password){
+        
+         a=a-1;
+         
+        show="incorrect password";
+        //alert("here");
+       
+      }
+      else if(input1.value!=info[i].email && input2.value!=info[i].password){
+        //alert("h");
+        
+        show="invalid login";alert(i);
+       //break;
+        
+      }
+       else {
+        let dets={};
+        dets.accountNo=info[i].accountNo;
+        dets.email=input1.value;
+        dets.password=input2.value;
+        dets.username=info[i].username;
+        console.log(dets);
+        second.push(dets);
+        localStorage.setItem("DatabaseAmin2",JSON.stringify(second));
+        dets=JSON.parse(localStorage.getItem("DatabaseAdmin2"));
+        
+        show="member";
+         window.location="DashboardAdmin.html"
+        
+       document.getElementById("name").innerHTML = "you";
+        break;
+      }
+      if (a==0) { 
+       
+        var s=11;
+       input1.disabled=true;
+       input2.disabled=true;
+       document.getElementById("but").disabled=true;
+       fade.style.display="block";
+     
+       alert("you have logged in multiple times, you have to wait for 10 seconds to try again");
+             
+       var get= setInterval(function(){
+         s--;
+        
+         fade.innerHTML=s;
+         
+          if (s<=0) {
+           clearInterval(get);
+         }
+       }, 1000)
+            
+               if (fade.style.display="block") {
+                   
+                   a=3;
+               var got= setInterval(function(){
+                
+                 input1.disabled=false;
+                 input2.disabled=false;
+                 document.getElementById("but").disabled=false;
+                 
+                 fade.style.display=fade.style.display.replace("block","none");
+                  
+               }, 11000)
+                
+                 
+               
+             
+             
+           
+     }
+         }
+   
+    }
+   alert(show);}
+    }
+
+// (input1.value==info[i].email && input2.value==info[i].password)
+
+    
+    function timeOut() {
+          var img=document.getElementById("mbag");
+         
+          if (img.style.display="block") {
+            
+             
+            var get= setInterval(function(){img.style.display=img.style.display.replace("block","none");set.style.display=set.style.display.replace("none","block");}, 1000)
+            
+          
+          
+        }
+    
+      } 
+
+</script>
+</html>

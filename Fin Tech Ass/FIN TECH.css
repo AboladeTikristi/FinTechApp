@@ -19,10 +19,10 @@ animation:opac 2s ;
     margin-right: auto;
     background-color: skyblue;
     width:400px;
-    height:500px;
+    height:550px;
 }
 .logt{
-     width:100px;height:20px;margin-left:auto;margin-right:auto;display:block;margin-top:15px;font-size:25px; color:white;
+     width:200px;text-align:center;height:20px;margin-left:auto;margin-right:auto;display:block;margin-top:15px;font-size:25px; color:white;
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .inputs{
@@ -56,13 +56,13 @@ animation:opac 2s ;
     background-color:blue;
 }
 .signinp{
-    margin-top:5%;
+    margin: top 5% !important;;
     margin-bottom:auto;
     margin-left: auto;
     margin-right: auto;
     background-color: skyblue;
-    width:400px;
-    height:600px;
+    /* width:400px; */
+    /* height:600px; */
 }
 
 /* .w3-animate-opacity{animation:opac 0.8s}@keyframes opac{from{opacity:0} to{opacity:1}} */

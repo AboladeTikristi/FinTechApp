@@ -6,54 +6,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Money Bag signup</title>
     <link rel="stylesheet" href="FIN TECH.css">
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/bootstrap-5.1.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="fontawesome-free-6.1.1-web/css/all.css">
 </head>
 <body style="background-color:aliceblue;">
-    <div id="set" style="display:block;" class="signinp"><br>
-        <img src="money bag3.png" alt="" style="width:50px;height:50px;margin-left:auto;margin-right:auto;display:block;margin-top:20px;">
-        <div class="logt">SIGN UP </div><br>
-        <div style="width:400px;height:500px;margin-left:40px;margin-right:auto;display:block;margin-top:20px;color:white;">
-            <span>User Name</span><br>
-        <input type="text"placeholder="Type your name" class="inputs" id="inputs1">
-        <br><br>
-        <span>Email</span><br>
-        <input type="frame"placeholder="Type your Email" class="inputs" id="inputs2">
-        <br><br>
-        <span>Password</span><br>
-        <input type="password"placeholder="****" class="inputs" id="inputs3">
-        <br><br>
-        <span> Confirm Password</span><br>
-        <input type="password"placeholder="****" class="inputs" id="inputs4">
-        <br><br>
-      
-        <input type="radio" id="agree"placeholder="i agree" > <span style="color:grey;"> I agree all the</span>  <a style="color:white;text-decoration:none;" onclick="myTerms()" href="">terms and conditions</a> .
-        <br>
-        <button class="buttonl" onclick="mySignup()">SIGN UP </button>
-        <br><br>
-        <span style="color:grey;;">Already have an account? <a href="FIN TECH.html"style="color:white;text-decoration:none;margin-top:10px;margin-left:0px;text-align:right;">login here</a></span>
-      </div><br>
+    <div class="row">
+        <div class="col-12 col-md-4 col-sm-12 mx-auto">
+            <br>
+            
+             <div class=" mt-5 mx-auto">
+                 <div class="row">
+                     <div style="background-color:skyblue; color:white;"class="col-12 mx-auto shadow mt-5 p-4">
+                       
+                             
+                             <img src="money bag3.png" alt="" style="width:50px;height:50px;margin-left:auto;margin-right:auto;display:block;margin-top:20px;">
+                             <div class="logt">SIGN UP </div><br>
+                             <div style="margin-left:40px;display:block;margin-top:20px;color:white;">
+                                 <span>User Name</span><br>
+                             <input type="text"placeholder="Type your name" class="inputs" id="inputs1">
+                             <br><br>
+                             <span>Email</span><br>
+                             <input type="frame"placeholder="Type your Email" class="inputs" id="inputs2">
+                             <br><br>
+                             <span>Password</span><br>
+                             <input type="password"placeholder="****" class="inputs" id="inputs3">
+                             <span ><i toggle="#inputs3" id="reveal" style="position:absolute;" class="fa fa-fw fa-eye field-icon toggle-password"></i></span>
+                             <br><br>
+                             <span> Confirm Password</span><br>
+                             <input type="password"placeholder="****" class="inputs" id="inputs4">
+                             <span ><i toggle="#inputs4" id="reveals" style="position:absolute;"class="fa fa-fw fa-eye field-icon toggle-password"></i></span>
+                             <br><br>
+                           
+                             <input type="radio" id="agree"placeholder="i agree" > <span style="color:grey;"> I agree all the</span>  <a style="color:white;text-decoration:none;" onclick="myTerms()" href="">terms and conditions</a> .
+                             <br>
+                             <button class="buttonl" onclick="mySignup()">SIGN UP </button>
+                             <br><br>
+                             <span style="color:grey;;">Already have an account? <a href="signIn.html"style="color:white;text-decoration:none;margin-top:10px;margin-left:0px;text-align:right;">login here</a></span>
+                    
+                    
+                   
+                     
+                              </div>
+                
+                 </div>
+     
+             
+              </div>
+         </div>
+        </div>
         
        </div>
        <script>
-        //    var acc=[]
-        var acc=JSON.parse(localStorage.getItem("Database"));
+           if (JSON.parse(localStorage.getItem("Database"))){
+            var acc=JSON.parse(localStorage.getItem("Database"));
+           }
+           else{
+              var acc=[]
+           }
+
            var det;
            var i =0;
           
-       
+        document.getElementById("reveal").addEventListener('click',function(){ 
+            if (inputs3.type==="password") {
+            inputs3.type="text";
+            reveal.className="fa-eye fa-fw fa-solid fa-eye-slash";
+            
+            }
+            else if(inputs3.type==="text"){
+            inputs3.type="password"
+            reveal.className="fa-eye fa-fw fa-solid ";
+            }
+        })
+        document.getElementById("reveals").addEventListener('click',function(){ 
+            if (inputs4.type==="password") {
+            inputs4.type="text";
+            reveals.className="fa-eye fa-fw fa-solid fa-eye-slash";
+            
+            }
+            else if(inputs4.type==="text"){
+            inputs4.type="password"
+            reveals.className="fa-eye fa-fw fa-solid ";
+            }
+        })
            function mySignup(){
                for(i=0; i<=acc.length;i++)
                {
                 
-                
-                    if(inputs2.value==acc[i].email){
-                        response="This email already exist";
-                        alert(acc[i].email);
-                        break;
+                    if(JSON.parse(localStorage.getItem("Database"))){
+                        var em=acc[i].email
+                    }
+                    else{
+                        var em="";
                     }
                    if(inputs3.value!=inputs4.value){
                         response="Invalid password confirmation";
+                        break;
                         
                      }
+                    else if(inputs2.value==em){
+                        response="This email already exist"; 
+                        alert(acc[i].email);
+                        break;
+                    }
                     else
                     {
                         let det={};
@@ -62,6 +117,7 @@
                         det.password=inputs3.value;
                         var ran=Math.random();
                         det.accountNo=Math.floor(ran*100000000); 
+                        det.accBalance=5000;
                         console.log(det);
                         acc.push(det);
                         localStorage.setItem("Database",JSON.stringify(acc));
@@ -70,7 +126,7 @@
                         
                         response ="Registration succesfulliiii";
                         
-                        window.location="FIN TECH.html";
+                        window.location="signIn.html";
                         break;
                         
                     }
