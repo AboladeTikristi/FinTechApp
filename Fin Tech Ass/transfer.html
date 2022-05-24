@@ -139,16 +139,16 @@
                         alert("insufficient funds")
                     }
                     else if (paw.value==sake[q].password&&accNo.value==sake[q].accountNo) {
-                        alert("You transferred to yourself /n try again with correct account number")
+                        alert("You transferred to yourself or wowrong password try again with correct account number")
                     }
                    else if ( paw.value==sake[q].password&&accNo.value!=sake[q].accountNo) {
                         sake[q].accBalance-=amt.value;
                         sake[q1].accBalance+=parseFloat(amt.value);
                         sake[q].ldebit=amt.value;
                         sake[q1].lcredit=amt.value;
-                       alert( sake[q].accBalance);
-                       alert(sake[q1].username);
-                       
+                      // alert( sake[q].accBalance);
+                       //alert(sake[q1].username);
+                       alert(`Transaction of ${amt.value} successful. check history`)
                        localStorage.setItem("Database",JSON.stringify(sake) );
 
                        
@@ -209,7 +209,7 @@
                     set=JSON.parse(localStorage.getItem("DatabaseAcc"));
                     timeArr.push(time)
                     set.push(file); 
-                    alert(set);
+                   // alert(set);
                     localStorage.setItem("DatabaseAcc",JSON.stringify(set));
                     set=JSON.parse(localStorage.getItem("DatabaseAcc"));}}
         const ctx = document.getElementById('debit').getContext('2d');

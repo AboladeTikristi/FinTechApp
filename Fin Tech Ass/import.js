@@ -1,10 +1,17 @@
-  var info=JSON.parse(localStorage.getItem("Database"));
+ // var info=JSON.parse(localStorage.getItem("Database"));
   
   var a=3;
   var i;
   var second=[];
   // var third=[];
    //var third=JSON.parse(localStorage.getItem("Database3"));
+   if (JSON.parse(localStorage.getItem("Database"))){
+    var info=JSON.parse(localStorage.getItem("Database"));
+    
+   }
+   else{
+      var info=[]
+   }
     function myLogin(){
      
     
@@ -12,6 +19,9 @@
           alert("incomplete details");
           return;
       }
+      if (JSON.parse(localStorage.getItem("Database"))) {
+        
+     
     for(i=0; i<=info.length; i++){ 
        
       if(input1.value==info[i].email && input2.value!=info[i].password){
@@ -25,7 +35,7 @@
       else if(input1.value!=info[i].email && input2.value!=info[i].password){
         //alert("h");
         
-        show="invalid login";alert(i);
+        show="invalid login";
        //break;
         
       }
@@ -35,7 +45,7 @@
         dets.email=input1.value;
         dets.password=input2.value;
         dets.username=info[i].username;
-        console.log(dets);
+        //console.log(dets);
         second.push(dets);
         localStorage.setItem("Database2",JSON.stringify(second));
         dets=JSON.parse(localStorage.getItem("Database2"));
@@ -88,7 +98,12 @@
          }
    
     }
+  
    alert(show);
+  }
+  else{
+    alert("not signed up yet")
+  }
     }
 
 // (input1.value==info[i].email && input2.value==info[i].password)

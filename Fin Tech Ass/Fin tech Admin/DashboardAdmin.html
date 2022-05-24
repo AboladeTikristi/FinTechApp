@@ -309,12 +309,12 @@
                     
                     var poses="pose"+s;
                     var let=document.getElementById(poses).innerHTML;
-                    alert(let)
+                    //alert(let)
                     let obj = sake.find(o => o.username === let);
                     let q=sake.indexOf(obj);
                    
                     var seen="shs"+s;
-                    alert(seen);
+                    //alert(seen);
                     var inner1;
                   
                         
@@ -328,10 +328,7 @@
                                 <small>Password:${sake[q].password}</small><br>
                                 <br>
                                     </div>`
-                    
-                    // alert(inner1)
-                    //       document.getElementById(see).innerHTML=inner1;
-            
+                  
             }
                 window.trans=function(s){
                     
@@ -372,7 +369,7 @@
           
                for(i=0; i<=sake.length;i++)
                {
-               alert('here')
+              
                 
                if(JSON.parse(localStorage.getItem("Database"))){
                         var em=sake[i].email
@@ -382,7 +379,7 @@
                     }
                     if(getEmail.value==em){
                         response="This email already exist";
-                        alert(sake[i].email);
+                        //alert(sake[i].email);
                         break;
                     }
                    else if(getPassword.value!=pawc.value){
@@ -390,7 +387,7 @@
                         break;
                      }
                     else 
-                    { alert('hey')
+                    { 
                         let det={};
                         det.username=getName.value;
                         det.email=getEmail.value;
@@ -419,17 +416,17 @@
                     var inner="";
                     var poses="pose"+s;
                     var let=document.getElementById(poses).innerHTML;
-                    alert(let)
+                   // alert(let)
                     let obj = sake.find(o => o.username === let);
                     let q=sake.indexOf(obj);
                     
                     var see="eds"+s;
-                    alert(see);
+                    //alert(see);
                    
             
             }
             window.del=function(s){
-                alert(s)
+                //alert(s)
                 var k=s;
                 var get ="delet"+s
                 confirm("Are you sure you want to delete this record?")
@@ -566,45 +563,6 @@
                 
                
             }
-        // for (let i = 0; i < takes.length; i++) {
-             
-        //     let obj3 = takes.find(o => o.username === hello.innerHTML);
-        //             let q=takes.indexOf(obj3);
-                   
-        //     bal.innerHTML= takes[q].accBalance;          
-        //      num.innerHTML=takes[q].accountNo;
-        // }
-      
-
-        //  var imp =document.getElementById("input1");  
-        // var names =document.getElementById("name");
-        
-        // const ctx = document.getElementById('debit').getContext('2d');
-        // var month=["jan","feb","march","april","may","june","july","sept","oct","nov","dec"]
-        //  new Chart("debit",{
-        //  type:"bar",
-        //  data:{
-        //      labels:month,
-        //      datasets: [{
-        //          data:[12,13,45,23,56,12,13,45,23,56,12,3],
-        //          backgroundColor:'blue',
-        //          borderColor:'white',
-        //          fill:true,
-        //      },
-        //     {
-        //         data:[12,13,45,23,56,12,13,45,23,56,12,3],
-        //          backgroundColor:'red',
-        //          borderColor:'white',
-        //          fill:true, 
-        //     }]
-        //  },
-        //     options:{legend:{display:false},
-        //           title:{
-        //               display:true
-        //           }}   
-        // })
-      
-      
       
 
     </script>
