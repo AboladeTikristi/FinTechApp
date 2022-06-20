@@ -54,7 +54,7 @@
             
          </nav>
                 <button onclick="logout()" style="color:grey;margin-left:10px;text-decoration:none ;" class="border-0 bg-transparent">
-            <a style="color:burlywood;text-decoration:none;" href="index.html">Log Out</a>
+            <a style="color:burlywood;text-decoration:none;" >Log Out</a>
                  </button>
             </div>
        
@@ -121,9 +121,12 @@
             window.location="signIn.html"
         }
         function logout(){
-            confirm('are you sure you want to Log out?')
-            localStorage.removeItem('Database2')
+            var out= confirm('are you sure you want to Log out?')
+            if(out===true){
+            localStorage.removeItem('Database2');
             localStorage.removeItem('DatabaseAcc')
+            window.location="index.html"
+            }
         }
         function transfer(){
            

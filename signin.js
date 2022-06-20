@@ -1,61 +1,52 @@
- // var info=JSON.parse(localStorage.getItem("Database"));
+// To check if the database exit before logging in
+ if (JSON.parse(localStorage.getItem("Database"))){
+  var info=JSON.parse(localStorage.getItem("Database"));
   
+ }
+ else{
+    var info=[]
+ }
+//  Variable that deals with check number of logins without success
   var a=3;
   var i;
   var second=[];
-  // var third=[];
-   //var third=JSON.parse(localStorage.getItem("Database3"));
-   if (JSON.parse(localStorage.getItem("Database"))){
-    var info=JSON.parse(localStorage.getItem("Database"));
-    
-   }
-   else{
-      var info=[]
-   }
-    function myLogin(){
-     
-    
+  function myLogin(){
+ 
+     console.log(info)
        if(input1.value==""||input2.value==""){
           alert("incomplete details");
           return;
       }
-      if (JSON.parse(localStorage.getItem("Database"))) {
-        
+      if (!info) {
+        alert("This email is not valid")
+      }
+      else{
+      for(i=0; i<=info.length; i++){
      
-    for(i=0; i<=info.length; i++){ 
-       
-      if(input1.value==info[i].email && input2.value!=info[i].password){
-        
+      if(input2.value!=info[i].password && input1.value!=info[i].email ){
          a=a-1;
-         
         show="incorrect password";
-        //alert("here");
-       
+        
       }
       else if(input1.value!=info[i].email && input2.value!=info[i].password){
-        //alert("h");
-        
         show="invalid login";
-       //break;
+        break;
         
       }
-       else {
+       else  {
         let dets={};
         dets.accountNo=info[i].accountNo;
         dets.email=input1.value;
         dets.password=input2.value;
         dets.username=info[i].username;
-        //console.log(dets);
         second.push(dets);
         localStorage.setItem("Database2",JSON.stringify(second));
         dets=JSON.parse(localStorage.getItem("Database2"));
         
         show="member";
-         window.location="Dashboard.html"
-        
-       document.getElementById("name").innerHTML = "you";
-        break;
+        window.location="Dashboard.html"
       }
+       // Interval for checking the time of logins  
       if (a==0) { 
        
         var s=11;
@@ -65,7 +56,7 @@
        fade.style.display="block";
      
        alert("you have logged in multiple times, you have to wait for 10 seconds to try again");
-             
+          
        var get= setInterval(function(){
          s--;
         
@@ -88,11 +79,7 @@
                  fade.style.display=fade.style.display.replace("block","none");
                   
                }, 11000)
-                
-                 
-               
-             
-             
+            
            
      }
          }
@@ -101,11 +88,7 @@
   
    alert(show);
   }
-  else{
-    alert("not signed up yet")
-  }
     }
 
-// (input1.value==info[i].email && input2.value==info[i].password)
 
     
